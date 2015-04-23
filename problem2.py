@@ -1,4 +1,7 @@
 def evenFibNum():
+    """
+    Get the sum of only even Fibonacci that are less than 4000000
+    """
     l = [1, 2]
     i = 2
     sum = 0
@@ -11,11 +14,6 @@ def evenFibNum():
         else:
             break
         i += 1
-    sum = 0
-    for j in l:
-        if j % 2 ==0:
-            print j
-            sum += j
     return sum
 
 if __name__ == '__main__':
