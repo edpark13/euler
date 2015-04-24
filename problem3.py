@@ -1,15 +1,15 @@
-def largestPrime(num):
+def largestPrime(n):
     """
     Find the largest prime factor of a number
     """
     i = 2
-
-    while i * i < num:
-        while num%i == 0:
-            num = num / i
-        i += 1
-
-    return num
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            print i
+            n //= i
+    return n
 
 if __name__ == '__main__':
-    print largestPrime(600851475143)
+    print largestPrime(100)
