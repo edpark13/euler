@@ -1,10 +1,12 @@
+from math import sqrt
+
 def find_prime(num):
     l = [2]
     count = 1
     i = 3
     while count != num:
         print i
-        for j in xrange(2, i):
+        for j in xrange(2, int(sqrt(i+1)) + 1):
             if i % j == 0:
                 break
         else:
