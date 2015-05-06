@@ -9,4 +9,5 @@ def large_sum():
     return sum
 
 if __name__ == '__main__':
+    print str(large_sum())
     print str(large_sum())[0:10] # print only the first 10 digits
