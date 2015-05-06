@@ -1,6 +1,9 @@
 from math import sqrt
 
 def find_prime(num):
+    """
+    Given a number find that many primes
+    """
     l = [2]
     count = 1
     i = 3
