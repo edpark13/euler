@@ -1,18 +1,37 @@
 def largest_grid_product(grid):
   max = float("-inf")
-  for i in xrange(0, len(grid)):
-    for j in xrange(0, len(grid[i]) - 3):
+  multiples = []
+
+  print range(len(grid)-3)
+  print range(16)
+
+  for i in xrange(len(grid)):
+    for j in xrange(len(grid[i]) - 3):
       productx = grid[i][j] * grid[i][j+1] * grid[i][j+2] * grid[i][j+3]
       producty = grid[j][i] * grid[j+1][i] * grid[j+2][i] * grid[j+3][i]
       if productx > max:
         max = productx
+        multiples = ["x", grid[i][j], grid[i][j+1], grid[i][j+2], grid[i][j+3]]
       elif producty > max:
         max = producty
+        multiples = ["y", grid[j][i], grid[j+1][i], grid[j+2][i], grid[j+3][i]]
 
-  for i in xrange(0, len(grid) - 3):
-    productd = grid[i][i] * grid[i+1][i+1] * grid[i+2][i+2] * grid[i+3][i+3]
-    if productd > max: max = productd
-  print max
+  for i in xrange(len(grid) - 3):
+    for j in xrange(len(grid[i]) - 3):
+      productdr = grid[i][j] * grid[i+1][j+1] * grid[i+2][j+2] * grid[i+3][j+3]
+      # print ["dr", grid[i][j], grid[i+1][j+1], grid[i+2][j+2], grid[i+3][j+3]]
+      if productdr > max:
+        max = productdr
+        multiples = ["dr", grid[i][j], grid[i+1][j+1], grid[i+2][j+2], grid[i+3][j+3]]
+  for i in xrange(3, len(grid)):
+    for j in xrange(len(grid[i]) - 3):
+      productdl = grid[i][j] * grid[i-1][j+1] * grid[i-2][j+2] * grid[i-3][j+3]
+      # print ["dl", grid[i][j], grid[i-1][j+1], grid[i-2][j+2], grid[i-3][j+3]]
+      if productdl > max:
+        max = productdl
+        multiples = ["dl", grid[i][j], grid[i-1][j+1], grid[i-2][j+2], grid[i-3][j+3]]
+
+  print max, multiples
 
 if __name__ == '__main__':
   L = []
